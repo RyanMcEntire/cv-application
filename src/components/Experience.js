@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
 export default class Experience extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { title } = this.props;
+
     return (
       <div>
         <form action="">
-          <h2>Employment</h2>
+          <h2>{title}</h2>
           <fieldset>
             <div>
               <label htmlFor="companyName">Company Name</label>
@@ -24,7 +30,7 @@ export default class Experience extends Component {
           </fieldset>
           <button>Submit</button>
           <button>Add More +</button>
-          <button className='edit-experience'>Edit</button>
+          <button className="edit-experience">Edit</button>
         </form>
       </div>
     );

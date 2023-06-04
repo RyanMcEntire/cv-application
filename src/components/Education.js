@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
 export default class Education extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { title } = this.props;
+
     return (
       <div>
         <form action="">
-          <h2>Education</h2>
+          <h2>{title}</h2>
           <fieldset>
             <div>
               <label htmlFor="schoolName">School Name:</label>

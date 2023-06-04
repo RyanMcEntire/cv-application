@@ -6,14 +6,23 @@ import Experience from './components/Experience';
 export default class App extends Component {
   constructor(props) {
     super(props);
+
+    this.onSubmitGeneral = this.onSubmitGeneral.bind(this);
+  }
+
+  onSubmitGeneral(submittedState) {
+    console.log(submittedState);
   }
 
   render() {
     return (
       <div>
-        <General />
-        <Education />
-        <Experience />
+        <General
+          title="General Info"
+          onGeneralSubmitted={this.onSubmitGeneral}
+        />
+        <Education title="Education" />
+        <Experience title="Experience" />
       </div>
     );
   }
