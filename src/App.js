@@ -14,6 +14,10 @@ export default class App extends Component {
     console.log(submittedState);
   }
 
+  onSubmitEducation(submittedState) {
+    console.log(submittedState);
+  }
+
   render() {
     return (
       <div>
@@ -21,7 +25,10 @@ export default class App extends Component {
           title="General Info"
           onGeneralSubmitted={this.onSubmitGeneral}
         />
-        <Education title="Education" />
+        <Education
+          title="Education"
+          onEducationSubmitted={this.onSubmitEducation}
+        />
         <Experience title="Experience" />
       </div>
     );

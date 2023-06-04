@@ -60,8 +60,7 @@ export default class General extends Component {
               <input name="phone" onChange={this.changePhone} type="phone" />
             </div>
           </fieldset>
-          <button onSubmit={onGeneralSubmitted}>Submit</button>
-          <button className="edit-general">Edit</button>
+          <button>Submit</button>
         </form>
       </div>
     );

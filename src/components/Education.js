@@ -3,32 +3,73 @@ import React, { Component } from 'react';
 export default class Education extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      name: '',
+      title: '',
+      date: '',
+    };
+
+    this.changeName = this.changeName.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
+    this.changeDate = this.changeDate.bind(this);
+  }
+
+  changeName(e) {
+    this.setState({
+      name: e.target.value,
+    });
+  }
+
+  changeTitle(e) {
+    this.setState({
+      title: e.target.value,
+    });
+  }
+
+  changeDate(e) {
+    this.setState({
+      date: e.target.value,
+    });
   }
 
   render() {
-    const { title } = this.props;
+    const { title, onEducationSubmitted } = this.props;
 
     return (
       <div>
-        <form action="">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onEducationSubmitted(this.state);
+          }}
+          action=""
+        >
           <h2>{title}</h2>
           <fieldset>
             <div>
               <label htmlFor="schoolName">School Name:</label>
-              <input type="text" />
+              <input name="schoolName" onChange={this.changeName} type="text" />
             </div>
             <div>
               <label htmlFor="titleOfStudy">Title of Study:</label>
-              <input type="text" />
+              <input
+                name="titleOfStudy"
+                onChange={this.changeTitle}
+                type="text"
+              />
             </div>
             <div>
               <label htmlFor="dateOfStudy">Date of Study:</label>
-              <input type="date" />
+              <input
+                name="dateOfStudy"
+                onChange={this.changeDate}
+                type="date"
+              />
             </div>
           </fieldset>
           <button>Submit</button>
           <button>Add More +</button>
-          <button className="edit-education">Edit</button>
         </form>
       </div>
     );
