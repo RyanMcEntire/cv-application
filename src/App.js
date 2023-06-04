@@ -8,6 +8,7 @@ export default class App extends Component {
     super(props);
 
     this.onSubmitGeneral = this.onSubmitGeneral.bind(this);
+    this.onSubmitEducation = this.onSubmitEducation.bind(this);
   }
 
   onSubmitGeneral(submittedState) {
@@ -15,6 +16,10 @@ export default class App extends Component {
   }
 
   onSubmitEducation(submittedState) {
+    console.log(submittedState);
+  }
+
+  onSubmitExperience(submittedState) {
     console.log(submittedState);
   }
 
@@ -29,7 +34,10 @@ export default class App extends Component {
           title="Education"
           onEducationSubmitted={this.onSubmitEducation}
         />
-        <Experience title="Experience" />
+        <Experience
+          title="Experience"
+          onExperienceSubmitted={this.onSubmitExperience}
+        />
       </div>
     );
   }
