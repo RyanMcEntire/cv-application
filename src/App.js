@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import General from './components/General';
-import Experience from './components/Experience';
+import ExperienceList from './components/ExperienceList';
 import EducationList from './components/EducationList';
 import uniqid from 'uniqid';
 
@@ -18,6 +18,7 @@ export default class App extends Component {
     this.onSubmitEducation = this.onSubmitEducation.bind(this);
     this.onSubmitExperience = this.onSubmitExperience.bind(this);
     this.addEduForm = this.addEduForm.bind(this);
+    this.addExpForm = this.addExpForm.bind(this);
   }
 
   onSubmitGeneral(newGeneral) {
@@ -39,14 +40,26 @@ export default class App extends Component {
   }
 
   onSubmitExperience(newExperience) {
-    this.setState((prevState) => ({
-      experiences: [...prevState.experiences, newExperience],
-    }));
+    this.setState((prevState) => {
+      const updatedExperiences = prevState.experiences.map((experience) => {
+        if (experience.id === newExperience.id) {
+          return newExperience;
+        }
+        return experience;
+      });
+      return { experiences: updatedExperiences };
+    });
   }
 
   addEduForm() {
     this.setState((prevState) => ({
       educations: [...prevState.educations, { id: uniqid() }],
+    }));
+  }
+
+  addExpForm() {
+    this.setState((prevState) => ({
+      experiences: [...prevState.experiences, { id: uniqid() }],
     }));
   }
 
@@ -65,12 +78,13 @@ export default class App extends Component {
           />
           <button onClick={this.addEduForm}>Add More +</button>
         </div>
+        <h2>Work Experience</h2>
         <div>
-          <Experience
-            title="Experience"
+          <ExperienceList
             onExperienceSubmitted={this.onSubmitExperience}
+            experiences={this.state.experiences}
           />
-          <button>Add More +</button>
+          <button onClick={this.addExpForm}>Add More +</button>
         </div>
       </div>
     );

@@ -9,6 +9,7 @@ export default class Experience extends Component {
       title: '',
       dateStart: '',
       dateEnd: '',
+      id: '',
     };
 
     this.changeName = this.changeName.bind(this);
@@ -42,7 +43,7 @@ export default class Experience extends Component {
   }
 
   render() {
-    const { title, onExperienceSubmitted } = this.props;
+    const { onExperienceSubmitted } = this.props;
 
     return (
       <div>
@@ -53,7 +54,6 @@ export default class Experience extends Component {
           }}
           action=""
         >
-          <h2>{title}</h2>
           <fieldset>
             <div>
               <label htmlFor="companyName">Company Name</label>
@@ -76,7 +76,6 @@ export default class Experience extends Component {
             </div>
           </fieldset>
           <button>Submit</button>
-          <button>Add More +</button>
         </form>
       </div>
     );
