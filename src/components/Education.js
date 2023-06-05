@@ -8,6 +8,7 @@ export default class Education extends Component {
       name: '',
       title: '',
       date: '',
+      id: '',
     };
 
     this.changeName = this.changeName.bind(this);
@@ -34,7 +35,7 @@ export default class Education extends Component {
   }
 
   render() {
-    const { title, onEducationSubmitted } = this.props;
+    const { onEducationSubmitted } = this.props;
 
     return (
       <div>
@@ -43,9 +44,7 @@ export default class Education extends Component {
             e.preventDefault();
             onEducationSubmitted(this.state);
           }}
-          action=""
         >
-          <h2>{title}</h2>
           <fieldset>
             <div>
               <label htmlFor="schoolName">School Name:</label>
@@ -69,7 +68,6 @@ export default class Education extends Component {
             </div>
           </fieldset>
           <button>Submit</button>
-          <button>Add More +</button>
         </form>
       </div>
     );
