@@ -6,11 +6,14 @@ export default class ExperienceList extends Component {
     const { experiences, onExperienceSubmitted } = this.props;
     return experiences.map((experience) => {
       return (
-        <Experience
-          key={experience.id}
-          experience={experience}
-          onExperienceSubmitted={onExperienceSubmitted}
-        />
+        <>
+          <Experience
+            key={experience.id}
+            experience={experience}
+            onExperienceSubmitted={onExperienceSubmitted}
+          />
+          
+        </>
       );
     });
   }

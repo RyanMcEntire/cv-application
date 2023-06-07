@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import General from './components/General';
 import ExperienceList from './components/ExperienceList';
 import EducationList from './components/EducationList';
+import DisplayCV from './components/display/DisplayCV';
 import uniqid from 'uniqid';
 
 export default class App extends Component {
@@ -25,6 +26,7 @@ export default class App extends Component {
     this.setState({
       general: [newGeneral],
     });
+    console.log(this.state);
   }
 
   onSubmitEducation(newEducation) {
@@ -37,6 +39,7 @@ export default class App extends Component {
       });
       return { educations: updatedEducations };
     });
+    console.log(this.state);
   }
 
   onSubmitExperience(newExperience) {
@@ -49,6 +52,7 @@ export default class App extends Component {
       });
       return { experiences: updatedExperiences };
     });
+    console.log(this.state);
   }
 
   addEduForm() {
@@ -66,26 +70,34 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <General
-          title="General Info"
-          onGeneralSubmitted={this.onSubmitGeneral}
+        <div className="form-container">
+          <General
+            title="General Info"
+            onGeneralSubmitted={this.onSubmitGeneral}
+          />
+          <div>
+            <h2>Education</h2>
+            <EducationList
+              onEducationSubmitted={this.onSubmitEducation}
+              educations={this.state.educations}
+            />
+            <button onClick={this.addEduForm}>Add More +</button>
+          </div>
+          <h2>Work Experience</h2>
+          <div>
+            <ExperienceList
+              onExperienceSubmitted={this.onSubmitExperience}
+              experiences={this.state.experiences}
+            />
+            <button onClick={this.addExpForm}>Add More +</button>
+          </div>
+        </div>
+
+        <DisplayCV
+          general={this.state.general}
+          educations={this.state.educations}
+          experiences={this.state.educations}
         />
-        <div>
-          <h2>Education</h2>
-          <EducationList
-            onEducationSubmitted={this.onSubmitEducation}
-            educations={this.state.educations}
-          />
-          <button onClick={this.addEduForm}>Add More +</button>
-        </div>
-        <h2>Work Experience</h2>
-        <div>
-          <ExperienceList
-            onExperienceSubmitted={this.onSubmitExperience}
-            experiences={this.state.experiences}
-          />
-          <button onClick={this.addExpForm}>Add More +</button>
-        </div>
       </div>
     );
   }
