@@ -43,7 +43,6 @@ export default class General extends Component {
             e.preventDefault();
             onGeneralSubmitted(this.state);
           }}
-          action=""
         >
           <h2>{title}</h2>
           <fieldset>

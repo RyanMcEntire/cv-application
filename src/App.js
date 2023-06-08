@@ -3,6 +3,7 @@ import General from './components/General';
 import ExperienceList from './components/ExperienceList';
 import EducationList from './components/EducationList';
 import DisplayCV from './components/display/DisplayCV';
+
 import uniqid from 'uniqid';
 
 export default class App extends Component {
@@ -81,7 +82,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mx-auto flex max-w-xl bg-red-300 p-6 text-slate-800 rounded-lg">
         <div className="form-container">
           <General
             title="General Info"
