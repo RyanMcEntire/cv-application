@@ -23,23 +23,27 @@ export default class App extends Component {
   }
 
   onSubmitGeneral(newGeneral) {
-    this.setState({
-      general: [newGeneral],
-    });
-    console.log(this.state);
+    this.setState(
+      {
+        general: [newGeneral],
+      },
+      () => console.log(this.state)
+    );
   }
 
   onSubmitEducation(newEducation) {
-    this.setState((prevState) => {
-      const updatedEducations = prevState.educations.map((education) => {
-        if (education.id === newEducation.id) {
-          return newEducation;
-        }
-        return education;
-      });
-      return { educations: updatedEducations };
-    });
-    console.log(this.state);
+    this.setState(
+      (prevState) => {
+        const updatedEducations = prevState.educations.map((education) => {
+          if (education.id === newEducation.id) {
+            return newEducation;
+          }
+          return education;
+        });
+        return { educations: updatedEducations };
+      },
+      () => console.log(this.state)
+    );
   }
 
   onSubmitExperience(newExperience) {
@@ -52,18 +56,20 @@ export default class App extends Component {
       });
       return { experiences: updatedExperiences };
     });
-    console.log(this.state);
   }
 
   addEduForm() {
     this.setState((prevState) => ({
-      educations: [...prevState.educations, { id: uniqid() }],
+      educations: [
+        ...prevState.educations,
+        { id: uniqid(), name: '', title: '', date: '' },
+      ],
     }));
   }
 
   addExpForm() {
     this.setState((prevState) => ({
-      experiences: [...prevState.experiences, { id: uniqid() }],
+      experiences: [...prevState.experiences, {}],
     }));
   }
 
@@ -96,7 +102,7 @@ export default class App extends Component {
         <DisplayCV
           general={this.state.general}
           educations={this.state.educations}
-          experiences={this.state.educations}
+          experiences={this.state.experiences}
         />
       </div>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
 export default class Education extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export default class Education extends Component {
       name: '',
       title: '',
       date: '',
-      id: '',
+      id: this.props.id,
     };
 
     this.changeName = this.changeName.bind(this);
