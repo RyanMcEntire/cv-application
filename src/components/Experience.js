@@ -9,7 +9,7 @@ export default class Experience extends Component {
       title: '',
       dateStart: '',
       dateEnd: '',
-      id: '',
+      id: this.props.id,
     };
 
     this.changeName = this.changeName.bind(this);
@@ -52,7 +52,6 @@ export default class Experience extends Component {
             e.preventDefault();
             onExperienceSubmitted(this.state);
           }}
-          action=""
         >
           <fieldset>
             <div>

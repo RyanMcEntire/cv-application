@@ -47,15 +47,18 @@ export default class App extends Component {
   }
 
   onSubmitExperience(newExperience) {
-    this.setState((prevState) => {
-      const updatedExperiences = prevState.experiences.map((experience) => {
-        if (experience.id === newExperience.id) {
-          return newExperience;
-        }
-        return experience;
-      });
-      return { experiences: updatedExperiences };
-    });
+    this.setState(
+      (prevState) => {
+        const updatedExperiences = prevState.experiences.map((experience) => {
+          if (experience.id === newExperience.id) {
+            return newExperience;
+          }
+          return experience;
+        });
+        return { experiences: updatedExperiences };
+      },
+      () => console.log(this.state)
+    );
   }
 
   addEduForm() {
@@ -69,7 +72,10 @@ export default class App extends Component {
 
   addExpForm() {
     this.setState((prevState) => ({
-      experiences: [...prevState.experiences, {}],
+      experiences: [
+        ...prevState.experiences,
+        { id: uniqid(), name: '', title: '', dateStart: '', dateEnd: '' },
+      ],
     }));
   }
 

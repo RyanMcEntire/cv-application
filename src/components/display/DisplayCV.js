@@ -41,7 +41,7 @@ class EducationDisplay extends Component {
         .filter((edu) => edu !== null)
         .map((edu) => {
           return (
-            <div key={edu.id}>
+            <div className="edu-container" key={edu.id}>
               <div className="school-name-container">
                 <h3>School Name:</h3>
                 <div>{edu.name ? edu.name : ''}</div>
@@ -66,7 +66,36 @@ class EducationDisplay extends Component {
 class ExperienceDisplay extends Component {
   render() {
     const { experiences } = this.props;
-
-    return <div></div>;
+    if (experiences.length > 0) {
+      return experiences
+        .filter((exp) => exp !== null)
+        .map((exp) => {
+          return (
+            <div className="exp-container" key={exp.id}>
+              <div className="exp-name-container">
+                <h3>Company Name:</h3>
+                <div>{exp.name ? exp.title : ''}</div>
+              </div>
+              <div className="exp-title-container">
+                <h3>Position Title:</h3>
+                <div>{exp.title ? exp.title : ''}</div>
+              </div>
+              <div className="exp-date-container">
+                <h3>Dates Worked</h3>
+                <div>
+                  <div>Start:</div>
+                  <div>{exp.dateStart ? exp.dateStart : ''}</div>
+                </div>
+                <div>
+                  <div>End:</div>
+                  <div>{exp.dateEnd ? exp.dateEnd : ''}</div>
+                </div>
+              </div>
+            </div>
+          );
+        });
+    } else {
+      return null;
+    }
   }
 }
