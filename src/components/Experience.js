@@ -48,22 +48,23 @@ export default class Experience extends Component {
     return (
       <div>
         <form
+          className="flex flex-col gap-2"
           onSubmit={(e) => {
             e.preventDefault();
             onExperienceSubmitted(this.state);
           }}
         >
-          <fieldset>
-            <div>
-              <label htmlFor="companyName">Company Name</label>
+          <fieldset className="flex flex-col gap-2">
+            <div className="flex flex-col">
+              <label htmlFor="companyName">Company Name:</label>
               <input name="name" onChange={this.changeName} type="text" />
             </div>
-            <div>
-              <label htmlFor="positionTitle">Position Title</label>
+            <div className="flex flex-col">
+              <label htmlFor="positionTitle">Position Title:</label>
               <input name="title" onChange={this.changeTitle} type="text" />
             </div>
-            <div>
-              <p>Dates Worked</p>
+            <div className="flex flex-col">
+              <p>Dates Worked:</p>
               <label htmlFor="dateStart">from:</label>
               <input
                 name="dateStart"
@@ -74,7 +75,7 @@ export default class Experience extends Component {
               <input name="dateEnd" onChange={this.changeDateEnd} type="date" />
             </div>
           </fieldset>
-          <button className="rounded-full bg-slate-800 px-3">Submit</button>
+          <button className="rounded-full bg-slate-600 px-3 text-slate-100">Submit</button>
         </form>
       </div>
     );

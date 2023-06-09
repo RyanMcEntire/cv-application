@@ -40,14 +40,14 @@ export default class Education extends Component {
     return (
       <div>
         <form
-          className=""
+          className="flex flex-col gap-2"
           onSubmit={(e) => {
             e.preventDefault();
             onEducationSubmitted(this.state);
           }}
         >
-          <fieldset>
-            <div>
+          <fieldset className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <label htmlFor="schoolName">School Name:</label>
               <input
                 className=""
@@ -56,7 +56,7 @@ export default class Education extends Component {
                 type="text"
               />
             </div>
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="titleOfStudy">Title of Study:</label>
               <input
                 name="titleOfStudy"
@@ -64,7 +64,7 @@ export default class Education extends Component {
                 type="text"
               />
             </div>
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="dateOfStudy">Date of Study:</label>
               <input
                 name="dateOfStudy"
@@ -73,7 +73,9 @@ export default class Education extends Component {
               />
             </div>
           </fieldset>
-          <button className="rounded-full bg-slate-800 px-3">Submit</button>
+          <button className="rounded-full bg-slate-600 px-3 text-slate-100">
+            Submit
+          </button>
         </form>
       </div>
     );

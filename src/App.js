@@ -24,7 +24,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    document.body.classList.add('bg-red-300');
+    document.body.classList.add('bg-blue-200');
   }
 
   onSubmitGeneral(newGeneral) {
@@ -86,8 +86,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className=" flex p-6 text-slate-800">
-        <div className="form-container flex flex-col">
+      <div className=" flex text-slate-800">
+        <div className="form-container flex flex-col w-1/2 p-12 gap-6">
           <General
             title="General Info"
             onGeneralSubmitted={this.onSubmitGeneral}
@@ -107,7 +107,7 @@ export default class App extends Component {
           </div>
           <div className="flex flex-col gap-2">
             <h2 className="text-3xl font-semibold">Work Experience</h2>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-2">
               <ExperienceList
                 onExperienceSubmitted={this.onSubmitExperience}
                 experiences={this.state.experiences}
