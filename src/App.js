@@ -23,6 +23,10 @@ export default class App extends Component {
     this.addExpForm = this.addExpForm.bind(this);
   }
 
+  componentDidMount() {
+    document.body.classList.add('bg-red-300');
+  }
+
   onSubmitGeneral(newGeneral) {
     this.setState(
       {
@@ -82,27 +86,39 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="mx-auto flex max-w-xl bg-red-300 p-6 text-slate-800 rounded-lg">
-        <div className="form-container">
+      <div className=" flex p-6 text-slate-800">
+        <div className="form-container flex flex-col">
           <General
             title="General Info"
             onGeneralSubmitted={this.onSubmitGeneral}
           />
-          <div>
-            <h2>Education</h2>
+          <div className="flex flex-col gap-2">
+            <h2 className="text-3xl font-semibold">Education</h2>
             <EducationList
               onEducationSubmitted={this.onSubmitEducation}
               educations={this.state.educations}
             />
-            <button onClick={this.addEduForm}>Add More +</button>
+            <button
+              className="rounded-full bg-slate-800 px-3 text-slate-100"
+              onClick={this.addEduForm}
+            >
+              Add More +
+            </button>
           </div>
-          <h2>Work Experience</h2>
-          <div>
-            <ExperienceList
-              onExperienceSubmitted={this.onSubmitExperience}
-              experiences={this.state.experiences}
-            />
-            <button onClick={this.addExpForm}>Add More +</button>
+          <div className="flex flex-col gap-2">
+            <h2 className="text-3xl font-semibold">Work Experience</h2>
+            <div className="flex flex-col">
+              <ExperienceList
+                onExperienceSubmitted={this.onSubmitExperience}
+                experiences={this.state.experiences}
+              />
+              <button
+                className="rounded-full bg-slate-800 px-3 text-slate-100"
+                onClick={this.addExpForm}
+              >
+                Add More +
+              </button>
+            </div>
           </div>
         </div>
 

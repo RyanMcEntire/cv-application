@@ -40,6 +40,7 @@ export default class Education extends Component {
     return (
       <div>
         <form
+          className=""
           onSubmit={(e) => {
             e.preventDefault();
             onEducationSubmitted(this.state);
@@ -48,7 +49,12 @@ export default class Education extends Component {
           <fieldset>
             <div>
               <label htmlFor="schoolName">School Name:</label>
-              <input name="schoolName" onChange={this.changeName} type="text" />
+              <input
+                className=""
+                name="schoolName"
+                onChange={this.changeName}
+                type="text"
+              />
             </div>
             <div>
               <label htmlFor="titleOfStudy">Title of Study:</label>
@@ -67,7 +73,7 @@ export default class Education extends Component {
               />
             </div>
           </fieldset>
-          <button>Submit</button>
+          <button className="rounded-full bg-slate-800 px-3">Submit</button>
         </form>
       </div>
     );

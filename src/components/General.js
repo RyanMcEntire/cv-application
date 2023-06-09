@@ -39,27 +39,28 @@ export default class General extends Component {
     return (
       <div>
         <form
+          className="flex flex-col gap-2"
           onSubmit={(e) => {
             e.preventDefault();
             onGeneralSubmitted(this.state);
           }}
         >
-          <h2>{title}</h2>
-          <fieldset>
-            <div>
+          <h2 className="text-3xl font-semibold">{title}</h2>
+          <fieldset className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <label htmlFor="name">Name:</label>
               <input name="name" onChange={this.changeName} type="text" />
             </div>
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="email">Email:</label>
               <input name="email" onChange={this.changeEmail} type="email" />
             </div>
-            <div>
+            <div className="flex flex-col">
               <label htmlFor="phone">Phone:</label>
               <input name="phone" onChange={this.changePhone} type="phone" />
             </div>
           </fieldset>
-          <button>Submit</button>
+          <button className="rounded-full bg-slate-600 px-3 text-slate-100">Submit</button>
         </form>
       </div>
     );

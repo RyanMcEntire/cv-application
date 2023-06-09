@@ -74,7 +74,7 @@ export default class Experience extends Component {
               <input name="dateEnd" onChange={this.changeDateEnd} type="date" />
             </div>
           </fieldset>
-          <button>Submit</button>
+          <button className="rounded-full bg-slate-800 px-3">Submit</button>
         </form>
       </div>
     );

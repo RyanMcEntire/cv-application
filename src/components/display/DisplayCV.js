@@ -5,7 +5,7 @@ export default class DisplayCV extends Component {
     const { general, educations, experiences } = this.props;
 
     return (
-      <div>
+      <div className="bg-slate-200">
         <GeneralDisplay general={general} />
         <EducationDisplay educations={educations} />
         <ExperienceDisplay experiences={experiences} />
