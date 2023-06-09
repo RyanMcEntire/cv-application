@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/%7Bcv-application%7D/static/css/main.4a3ebc77.css",
+    "main.js": "/%7Bcv-application%7D/static/js/main.2636209a.js",
+    "index.html": "/%7Bcv-application%7D/index.html",
+    "main.4a3ebc77.css.map": "/%7Bcv-application%7D/static/css/main.4a3ebc77.css.map",
+    "main.2636209a.js.map": "/%7Bcv-application%7D/static/js/main.2636209a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a3ebc77.css",
+    "static/js/main.2636209a.js"
+  ]
+}
