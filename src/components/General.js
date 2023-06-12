@@ -1,50 +1,19 @@
 import React, { useState } from 'react';
 
 export default function General({ title, onGeneralSubmitted }) {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     name: '',
-  //     email: '',
-  //     phone: '',
-  //   };
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
   const generalInfo = { name, email, phone };
 
-  //   this.changeName = this.changeName.bind(this);
-  //   this.changeEmail = this.changeEmail.bind(this);
-  //   this.changePhone = this.changePhone.bind(this);
-  // }
-
-  // changeName(e) {
-  //   this.setState({
-  //     name: e.target.value,
-  //   });
-  // }
   function changeName(e) {
     setName(e.target.value);
   }
 
-  // changeEmail(e) {
-  //   this.setState({
-  //     email: e.target.value,
-  //   });
-  // }
-
   function changeEmail(e) {
     setEmail(e.target.value);
   }
-
-  // changePhone(e) {
-  //   this.setState({
-  //     phone: e.target.value,
-  //   });
-  // }
 
   function changePhone(e) {
     setPhone(e.target.value);
